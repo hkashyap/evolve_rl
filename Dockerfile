@@ -39,17 +39,16 @@ RUN pip3 install --no-input neat-python
 #display stuff
 RUN pip3 install --no-input jupyter \
   && pip3 install --no-input pillow \
-  && apt-get install -y x11vnc xvfb fluxbox wmctrl \
+  && apt install -y x11vnc xvfb fluxbox wmctrl \
   && pip3 install --no-input matplotlib \
-  && apt-get install -y python3-tk \
-  && python-opengl
+  && apt install -y python3-tk
  
 CMD mkdir /root/code/notebooks
 WORKDIR /root/code
 
 #GVGAI
 ENV JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8
-RUN apt-get install -y openjdk-9-jdk-headless \
+RUN apt install -y openjdk-9-jdk-headless \
   && git clone https://github.com/rubenrtorrado/GVGAI_GYM.git \
   && cd GVGAI_GYM \
   && pip install -e .
@@ -58,7 +57,7 @@ RUN apt-get install -y openjdk-9-jdk-headless \
 RUN wget https://cs.gmu.edu/~eclab/projects/ecj/ecj26.tar.gz \
   && tar -xzf ecj26.tar.gz \
   && cd ecj \
-  && sudo apt install -y maven \
+  && apt install -y maven \
   && mvn clean package -B
   
 #ports
