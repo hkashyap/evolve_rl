@@ -41,7 +41,8 @@ RUN pip3 install --no-input jupyter \
   && pip3 install --no-input pillow \
   && apt install -y x11vnc xvfb fluxbox wmctrl \
   && pip3 install --no-input matplotlib \
-  && apt install -y python3-tk
+  && apt install -y python3-tk \
+  && apt install -y python-opengl
  
 CMD mkdir /root/code/notebooks
 WORKDIR /root/code
