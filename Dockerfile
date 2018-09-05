@@ -1,4 +1,4 @@
-FROM nvidia/cuda:9.2-cudnn7-devel-ubuntu16.04
+FROM nvidia/cuda:9.1-cudnn7-devel-ubuntu16.04
 # https://github.com/rubenrtorrado/GVGAI_GYM.git
 
 #PYTHON
