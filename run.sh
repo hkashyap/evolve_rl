@@ -19,5 +19,7 @@ main() {
 trap control_c SIGINT SIGTERM SIGHUP
 source /disp_funcs.sh
 main
+export DISPLAY=':1.0'
+Xvfb :1 -screen 0 1400x900x24 > /dev/null 2>&1 &
 
 exit

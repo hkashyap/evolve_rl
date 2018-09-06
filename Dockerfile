@@ -27,11 +27,16 @@ RUN pip3 install http://download.pytorch.org/whl/cu92/torch-0.4.1-cp36-cp36m-lin
 
 #GYM
 RUN pip3 install --no-input gym==0.10.5 \
-  && apt-get install -y swig \
+  && apt install -y swig \
   && pip3 install --no-input box2d
 
 #PYGAME
 RUN pip3 install --no-input pygame
+
+#ATARI
+RUN apt install -y cmake \
+  && apt install -y zlib1g-dev \
+  && pip3 install --no-input gym[atari]
 
 #NEAT-PYTHON
 RUN pip3 install --no-input neat-python
