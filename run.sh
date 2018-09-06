@@ -21,5 +21,6 @@ source /disp_funcs.sh
 main
 export DISPLAY=':1.0'
 Xvfb :1 -screen 0 1400x900x24 > /dev/null 2>&1 &
+echo "alias python='python3.6'" >> ~/.bash_aliases && source ~/.bash_aliases
 
 exit
