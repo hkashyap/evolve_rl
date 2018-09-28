@@ -1,4 +1,4 @@
-FROM nvidia/cuda:9.1-cudnn7-devel-ubuntu16.04
+FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
 # https://github.com/rubenrtorrado/GVGAI_GYM.git
 
 #PYTHON
@@ -22,7 +22,7 @@ RUN apt install -y unzip git \
   && pip3 install --no-input scipy
 
 #PYTORCH
-RUN pip3 install http://download.pytorch.org/whl/cu92/torch-0.4.1-cp36-cp36m-linux_x86_64.whl \
+RUN pip3 install http://download.pytorch.org/whl/cu90/torch-0.4.1-cp36-cp36m-linux_x86_64.whl \
   && pip3 install torchvision
 
 #GYM
@@ -47,7 +47,8 @@ RUN pip3 install --no-input jupyter \
   && apt install -y x11vnc xvfb fluxbox wmctrl \
   && pip3 install --no-input matplotlib \
   && apt install -y python3-tk \
-  && apt install -y python-opengl
+  && apt install -y python-opengl \
+  && apt install -y vim
  
 CMD mkdir /root/code/notebooks
 WORKDIR /root/code
