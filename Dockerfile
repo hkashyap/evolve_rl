@@ -1,4 +1,4 @@
-FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
+FROM nvidia/cuda:10.1-cudnn7-devel-ubuntu16.04
 # https://github.com/rubenrtorrado/GVGAI_GYM.git
 
 #PYTHON
@@ -22,8 +22,13 @@ RUN apt install -y unzip git \
   && pip3 install --no-input scipy
 
 #PYTORCH
-RUN pip3 install http://download.pytorch.org/whl/cu90/torch-0.4.1-cp36-cp36m-linux_x86_64.whl \
+RUN pip3 install https://download.pytorch.org/whl/cu100/torch-1.0.1.post2-cp36-cp36m-linux_x86_64.whl \
   && pip3 install torchvision
+
+#AWS
+RUN apt install -y zip \
+  && pip3 install --no-input awscli \
+  && pip3 install  --no-input awscli-plugin-endpoint
 
 #GYM
 RUN pip3 install --no-input gym==0.10.5 \
